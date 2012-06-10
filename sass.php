@@ -15,19 +15,19 @@ namespace {
         const STYLE_NESTED = 0;
         
         /**
-         * Not implemented
+         * Not implemented in libsass
          * @link https://github.com/hcatlin/libsass/issues/15
          * */
         const STYLE_EXPANDED  = 1;
         
         /**
-         * Not implemented
+         * Not implemented in libsass
          * @link https://github.com/hcatlin/libsass/issues/15
          * */
         const STYLE_COMPACT = 2;
         
         /**
-         * Not implemented
+         * Not implemented in libsass
          * @link https://github.com/hcatlin/libsass/issues/15
          * */
         const STYLE_COMPRESSED = 3;
@@ -55,7 +55,7 @@ namespace {
 
         /**
          * Not implemented
-         * Recursively compile directory
+         * Compile directory recursively
          * @static
          * @param string $input input directory
          * @param string $output output directory
@@ -71,7 +71,7 @@ namespace {
 namespace SASS {
 
     /**
-     * Runtime copilation error
+     * Runtime compilation error
      * */
     class CompileErrorException extends \Exception {}
 }

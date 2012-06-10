@@ -22,7 +22,7 @@
 #include <iostream>
 
 
-/* Extesion header */
+/* Extension header file */
 #include "php_sass.h"
 
 #ifdef COMPILE_DL_SASS
@@ -181,7 +181,9 @@ PHP_METHOD(SASS, compileFolder) {
     ctx->options.output_style = (int)options;
     ctx->options.include_paths = NULL;
      
-    if(sass_compile_folder(ctx)) {
+    sass_compile_folder(ctx);
+     
+    if(ctx->error_status) {
         zend_throw_exception(sass_CompileErrorException, ctx->error_message, ctx->error_status TSRMLS_CC);
     } 
 
@@ -196,7 +198,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_compile, 0, 0, 1)
 ZEND_END_ARG_INFO();
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_compile_file, 0, 0, 2)
-    ZEND_ARG_INFO(0, input)
+    ZEND_ARG_INFO(0, filename)
     ZEND_ARG_INFO(0, options)
     ZEND_ARG_INFO(0, include_paths)
 ZEND_END_ARG_INFO();
@@ -210,9 +212,9 @@ ZEND_END_ARG_INFO();
 
 /* Register methods */
 static const zend_function_entry sass_methods[] = {
-    ZEND_ME(SASS, compile, arginfo_compile,                 ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
-    ZEND_ME(SASS, compileFile, arginfo_compile_file,         ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
-    ZEND_ME(SASS, compileFolder, arginfo_compile_folder,     ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+    ZEND_ME(SASS, compile, arginfo_compile,               ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+    ZEND_ME(SASS, compileFile, arginfo_compile_file,      ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
+    ZEND_ME(SASS, compileFolder, arginfo_compile_folder,  ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
     {NULL, NULL, NULL}
 };
 
@@ -225,11 +227,11 @@ PHP_MINIT_FUNCTION(sass) {
     // copy all std methods
     memcpy(&sass_class_handlers, zend_get_std_object_handlers(), sizeof(zend_object_handlers));
 
-    SASS_CLASS_CONST_LONG("VERSION_NUMBER",        PHP_SASS_VERSION);
-    SASS_CLASS_CONST_LONG("STYLE_NESTED",         SASS_STYLE_NESTED);
+    SASS_CLASS_CONST_LONG("VERSION_NUMBER",     PHP_SASS_VERSION);
+    SASS_CLASS_CONST_LONG("STYLE_NESTED",       SASS_STYLE_NESTED);
     SASS_CLASS_CONST_LONG("STYLE_EXPANDED",     SASS_STYLE_EXPANDED);
-    SASS_CLASS_CONST_LONG("STYLE_COMPACT",         SASS_STYLE_COMPACT);
-    SASS_CLASS_CONST_LONG("STYLE_COMPRESSED",     SASS_STYLE_COMPRESSED);
+    SASS_CLASS_CONST_LONG("STYLE_COMPACT",      SASS_STYLE_COMPACT);
+    SASS_CLASS_CONST_LONG("STYLE_COMPRESSED",   SASS_STYLE_COMPRESSED);
     
     INIT_NS_CLASS_ENTRY(ce_exc, "SASS", "CompileErrorException", NULL);
     sass_CompileErrorException = zend_register_internal_class_ex(&ce_exc, ce_std_Exception, NULL TSRMLS_CC);
