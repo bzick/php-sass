@@ -42,10 +42,10 @@ extern zend_module_entry sass_module_entry;
 extern ZEND_API zend_class_entry *sass_class;
 
 #define SASS_CLASS_CONST_LONG(const_name, value) \
-	zend_declare_class_constant_long(sass_class, const_name, sizeof(const_name)-1, (long)value TSRMLS_CC);
+    zend_declare_class_constant_long(sass_class, const_name, sizeof(const_name)-1, (long)value TSRMLS_CC);
 
 #define ZEND_ARGS \
-	ZEND_NUM_ARGS() TSRMLS_CC
+    ZEND_NUM_ARGS() TSRMLS_CC
 
 PHP_METHOD(SASS, compile);
 PHP_METHOD(SASS, compileFile);
@@ -54,4 +54,4 @@ PHP_METHOD(SASS, compileFolder);
 PHP_MINIT_FUNCTION(sass);
 
 
-#endif	/* PHP_SASS_H */
+#endif    /* PHP_SASS_H */
