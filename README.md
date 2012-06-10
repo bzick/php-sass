@@ -1,7 +1,7 @@
-php-sass
+SASS PHP Extension - php-sass
 ========
 
-Compile:
+Install extensio:
 
     mkdir /tmp/php-sass
     git clone https://github.com/bzick/php-sass.git /tmp/php-sass
