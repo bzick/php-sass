@@ -15,4 +15,4 @@ See install.sh or checkinstall.sh for more information
 
 Usage
 -----
-See [https://github.com/bzick/php-sass/blob/master/sass.php]
+See https://github.com/bzick/php-sass/blob/master/sass.php
