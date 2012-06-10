@@ -36,7 +36,8 @@ extern "C" {
 extern zend_module_entry sass_module_entry;
 #define phpext_sass_ptr &sass_module_entry
 
-#define PHP_SASS_VERSION 1
+#define PHP_SASS_VERSION_NUMBER 10
+#define PHP_SASS_VERSION "0.1"
 
 extern ZEND_API zend_class_entry *sass_class;
 

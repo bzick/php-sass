@@ -21,3 +21,6 @@ configure.in
 run-tests.php
 .deps
 php_test_results_*.txt
+*.deb
+description-pak
+doc-pak/
