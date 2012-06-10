@@ -19,14 +19,24 @@
 #ifndef PHP_SASS_H
 #define PHP_SASS_H
 
+#ifdef ZTS
+#  include "TSRM.h"
+#endif
+
+#ifdef HAVE_CONFIG_H
+#  include "config.h"
+#endif 
+
+
+extern "C" {
+#include "php.h"
+#include "zend_exceptions.h"
+}
+
 extern zend_module_entry sass_module_entry;
 #define phpext_sass_ptr &sass_module_entry
 
 #define PHP_SASS_VERSION 1
-
-#ifdef ZTS
-#  include "TSRM.h"
-#endif
 
 extern ZEND_API zend_class_entry *sass_class;
 
@@ -41,5 +51,6 @@ PHP_METHOD(SASS, compileFile);
 PHP_METHOD(SASS, compileFolder);
 
 PHP_MINIT_FUNCTION(sass);
+
 
 #endif	/* PHP_SASS_H */
