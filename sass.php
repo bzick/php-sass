@@ -10,6 +10,11 @@ namespace {
     class SASS {
 
         /**
+         * Version of the extension
+         * */
+        const VERSION_NUMBER = 2; // mean 0.2
+        
+        /**
          * 'Nested' format
          * */
         const STYLE_NESTED = 0;
@@ -38,7 +43,7 @@ namespace {
          * @param string $string input SASS string
          * @param int $options one of the constants SASS::STYLE_*
          * @param string $include_paths *not implemented*
-         * @return string output compiled CSS
+         * @return string output CSS
          * @throws SASS\CompileErrorException if compilation failed
          */
         public static function compile($string, $options = self::STYLE_NESTED, $include_paths = null) {}
@@ -49,6 +54,7 @@ namespace {
          * @param string $filename input filename
          * @param int $options one of the constants SASS::STYLE_*
          * @param string $include_paths *not implemented*
+         * @return string compiled content of the file
          * @throws SASS\CompileErrorException if compilation failed or invalid arguments given
          */
         public static function compileFile($filename, $options = self::STYLE_NESTED, $include_paths = null) {}
