@@ -31,13 +31,14 @@
 extern "C" {
 #include "php.h"
 #include "zend_exceptions.h"
+#include "ext/standard/info.h"
 }
 
 extern zend_module_entry sass_module_entry;
 #define phpext_sass_ptr &sass_module_entry
 
-#define PHP_SASS_VERSION_NUMBER 10
-#define PHP_SASS_VERSION "0.1"
+#define PHP_SASS_VERSION_NUMBER 2
+#define PHP_SASS_VERSION "0.2"
 
 extern ZEND_API zend_class_entry *sass_class;
 
@@ -52,6 +53,6 @@ PHP_METHOD(SASS, compileFile);
 PHP_METHOD(SASS, compileFolder);
 
 PHP_MINIT_FUNCTION(sass);
-
+PHP_MINFO_FUNCTION(sass);
 
 #endif    /* PHP_SASS_H */
