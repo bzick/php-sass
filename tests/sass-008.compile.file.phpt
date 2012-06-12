@@ -4,13 +4,8 @@ Test simple CSS (without SASS)
 Ivan Shalganov <a.cobest@gmail.com>
 --FILE--
 <?php
-	echo SASS::compile(
-"* {
-  color: red;
-  float: left; }"
-	);
+	echo SASS::compileFile(__DIR__."/file1.sass", SASS::STYLE_NESTED);
 ?>
 --EXPECT--
-* {
-  color: red;
-  float: left; }
+div a {
+  color: black; }
