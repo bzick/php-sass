@@ -39,3 +39,5 @@ Elements of the extension
 `SASS::compileFolder()` method **not implemented**
 
 `SASS\CompileErrorException` exception class
+
+Also, argument `$include_paths` **not implemented**
